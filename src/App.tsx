@@ -1,13 +1,13 @@
 
-import './App.css'
 import { Typography } from '@mui/material'
+import './App.css'
 
 function App() {
   
 
   return (
     <>
-      <Typography>App</Typography>
+     <Typography>Ola</Typography>
     </>
   )
 }
