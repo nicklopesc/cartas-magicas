@@ -6,8 +6,11 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  SelectChangeEvent,
   TextField,
 } from "@mui/material";
+import { useState } from "react";
+import ContentMagicCardsApi from "./ContentMagicCardsApi";
 
 export default function ContentSearchCards() {
   const optionsCards = [
@@ -17,6 +20,16 @@ export default function ContentSearchCards() {
     "Ravnica",
     "Onslaught",
   ];
+
+  const [selectedOptionBloco, setSelectedOptionBloco] = useState("");
+
+  const handleSelectChange = (event: SelectChangeEvent<string>) => {
+    setSelectedOptionBloco(event.target.value);
+  };
+
+  const handleSearch = () => {
+    console.log("Opção selecionada:", selectedOptionBloco);
+  };
 
   return (
     <Grid
@@ -32,11 +45,13 @@ export default function ContentSearchCards() {
 
       <Grid item xs={6}>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">
-            Selecione uma opção
-          </InputLabel>
+          <InputLabel id="demo-simple-select-label">Bloco</InputLabel>
           <Select
-            label="Selecione uma opção"
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={selectedOptionBloco}
+            onChange={handleSelectChange}
+            label="Bloco"
             variant="outlined"
             style={{ borderRadius: 8 }}
             fullWidth
@@ -56,10 +71,12 @@ export default function ContentSearchCards() {
           startIcon={<SearchIcon />}
           fullWidth
           sx={{ backgroundColor: "#000000" }}
+          onClick={handleSearch}
         >
           Buscar
         </Button>
       </Grid>
+      <ContentMagicCardsApi selectedOptionBloco={selectedOptionBloco} />
     </Grid>
   );
 }
