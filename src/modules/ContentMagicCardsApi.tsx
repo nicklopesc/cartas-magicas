@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { useCardData } from "./hooks/useCardData";
 import CardsResult from "./CardsResult";
-import DefaultLoading from "../../components/DefaultLoading";
+import DefaultLoading from "../components/DefaultLoading";
 
 interface ContentMagicCardsApiProps {
   selectedOptionBloco: string;

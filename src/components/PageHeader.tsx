@@ -4,11 +4,13 @@ import { type ReactNode } from "react";
 export type PageHeaderProps = {
   titlePage: string;
   actions?: ReactNode;
+  children?: ReactNode;
 };
 
 export default function PageHeader({
   titlePage,
   actions,
+  children,
 }: PageHeaderProps) {
   return (
     <Stack
@@ -18,8 +20,11 @@ export default function PageHeader({
       paddingTop="70px"
       paddingX="30px"
     >
-       {actions}
-      <Typography variant="h3" fontWeight="bold" marginLeft="10px">{titlePage}</Typography>
+      {actions}
+      <Typography variant="h3" fontWeight="bold" marginLeft="10px">
+        {titlePage}
+      </Typography>
+      {children}
     </Stack>
   );
 }

@@ -1,6 +1,6 @@
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import PageHeader from "../components/PageHeader";
-import ContentSearchCards from "../modules/magic-cards/ContentSearchCards";
+import ContentSearchCards from "../modules/ContentSearchCards";
 
 export default function MagicCards() {
   return (
@@ -8,8 +8,8 @@ export default function MagicCards() {
       <PageHeader
         actions={<AutoFixHighIcon sx={{ fontSize: "50px" }} />}
         titlePage="Cartas Mágicas"
+        children={<ContentSearchCards />}
       />
-      <ContentSearchCards />
     </>
   );
 }
