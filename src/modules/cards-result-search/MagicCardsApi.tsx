@@ -3,20 +3,19 @@ import { useCardData } from "./hooks/useCardData";
 import CardsResult from "./CardsResult";
 import DefaultLoading from "../../components/DefaultLoading";
 
-interface ContentMagicCardsApiProps {
+interface MagicCardsApiProps {
   selectedOptionBloco: string;
 }
 
-const ContentMagicCardsApi: React.FC<ContentMagicCardsApiProps> = ({
+const MagicCardsApi: React.FC<MagicCardsApiProps> = ({
   selectedOptionBloco,
 }) => {
+  const { data, isLoading, isError } = useCardData({
+    block: selectedOptionBloco,
+  });
   if (!selectedOptionBloco) {
     return null;
   }
-
-  const { isLoading, data, isError } = useCardData({
-    block: selectedOptionBloco,
-  });
 
   return (
     <>
@@ -32,4 +31,4 @@ const ContentMagicCardsApi: React.FC<ContentMagicCardsApiProps> = ({
   );
 };
 
-export default ContentMagicCardsApi;
+export default MagicCardsApi;

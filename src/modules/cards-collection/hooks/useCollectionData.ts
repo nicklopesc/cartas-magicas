@@ -17,7 +17,7 @@ interface useCollectionDataProps {
 }
 
 export function useCollectionData(code: string) {
-  // console.log("CODEE", code);
+  console.log("CODEE", code);
   const fetchCollectionData = async ({ code }: useCollectionDataProps) => {
     try {
       const response = await api.get(`/sets/${code}/booster`);

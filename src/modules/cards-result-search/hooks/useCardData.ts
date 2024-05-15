@@ -1,3 +1,5 @@
+useCardData;
+
 import { useQuery } from "@tanstack/react-query";
 import api from "../../../service/api/api-instance";
 
@@ -10,8 +12,8 @@ const fetchDataCard = async (filters: SearchFilters) => {
     const queryParams = new URLSearchParams(
       filters as Record<string, string>
     ).toString();
-    const url = `/sets?${queryParams}`; // Inclua /sets no caminho aqui
-    const apiRes = await api.get(url); // Use a instância da API aqui
+    const url = `/sets?${queryParams}`;
+    const apiRes = await api.get(url);
     return apiRes.data;
   } catch (error) {
     throw new Error("Erro ao buscar dados das coleções de cartas.");

@@ -1,6 +1,5 @@
 import SearchIcon from "@mui/icons-material/Search";
 import {
-  Button,
   FormControl,
   Grid,
   InputLabel,
@@ -10,7 +9,8 @@ import {
   TextField,
 } from "@mui/material";
 import { useState } from "react";
-import ContentMagicCardsApi from "./ContentMagicCardsApi";
+import CustomButton from "../../components/CustomButton";
+import MagicCardsApi from "./MagicCardsApi";
 
 export default function ContentSearchCards() {
   const optionsCards = [
@@ -22,6 +22,7 @@ export default function ContentSearchCards() {
   ];
 
   const [selectedOptionBloco, setSelectedOptionBloco] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   const handleSelectChange = (event: SelectChangeEvent<string>) => {
     setSelectedOptionBloco(event.target.value);
@@ -29,6 +30,7 @@ export default function ContentSearchCards() {
 
   const handleSearch = () => {
     console.log("Opção selecionada:", selectedOptionBloco);
+    setSearchValue(selectedOptionBloco);
   };
 
   return (
@@ -42,7 +44,6 @@ export default function ContentSearchCards() {
       <Grid item xs={6}>
         <TextField label="Nome" variant="outlined" fullWidth />
       </Grid>
-
       <Grid item xs={6}>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Bloco</InputLabel>
@@ -64,19 +65,14 @@ export default function ContentSearchCards() {
           </Select>
         </FormControl>
       </Grid>
-
       <Grid item xs={12}>
-        <Button
-          variant="contained"
+        <CustomButton
+          titleButton="Buscar"
           startIcon={<SearchIcon />}
-          fullWidth
-          sx={{ backgroundColor: "#000000" }}
           onClick={handleSearch}
-        >
-          Buscar
-        </Button>
+        />
       </Grid>
-      <ContentMagicCardsApi selectedOptionBloco={selectedOptionBloco} />
+      <MagicCardsApi selectedOptionBloco={searchValue} />
     </Grid>
   );
 }

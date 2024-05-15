@@ -10,7 +10,7 @@ const CollectionCardsApi: React.FC = () => {
   console.log("CODE", code);
 
   if (code === undefined) {
-    return <Typography>Code is undefined</Typography>;
+    return <Typography>Code undefined</Typography>;
   }
 
   const { data, isLoading, isError } = useCollectionData(code);

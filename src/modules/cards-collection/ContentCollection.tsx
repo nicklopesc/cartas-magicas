@@ -21,7 +21,7 @@ export default function ContentCollection({
           component="img"
           image={imageUrl}
           alt="Card-Collection"
-          // sx={{ width: "100%", height: "auto" }}
+          sx={{ width: "75%", height: "auto" }}
         />
       </Grid>
       <Grid item md={6}>
