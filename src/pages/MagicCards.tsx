@@ -1,6 +1,6 @@
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import PageHeader from "../components/PageHeader";
-import ContentSearchCards from "../modules/ContentSearchCards";
+import ContentSearchCards from "../modules/cards-result-search/ContentSearchCards";
 
 export default function MagicCards() {
   return (
