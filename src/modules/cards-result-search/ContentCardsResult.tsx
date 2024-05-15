@@ -2,6 +2,7 @@ import { Card, Stack, Typography } from "@mui/material";
 import React from "react";
 
 export interface CardDetails {
+  code: string;
   name: string;
   block: string;
   releaseDate: string;
